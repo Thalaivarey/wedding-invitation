@@ -71,7 +71,7 @@ p{line-height:1.75}
   min-height:100svh;color:#fff;text-align:center;padding:120px 24px 48px;
   background:
     linear-gradient(180deg,rgba(20,12,14,.2),rgba(20,12,14,.58)),
-    url("assets/hero.webp") center/cover no-repeat,
+    url("assets/hero.png") center/cover no-repeat,
     linear-gradient(145deg,#7f6358,#332326);
 }
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,transparent 0 28%,rgba(18,12,13,.32) 72%)}
@@ -117,9 +117,9 @@ p{line-height:1.75}
 .story-card span{font-size:.7rem;letter-spacing:.2em;color:#d9c29b}
 .story-card h3{font-size:2.25rem;margin:8px 0 10px;font-weight:500}
 .story-card p{color:rgba(255,255,255,.72);margin:0}
-.card-one{background-image:url("assets/mountain.webp"),linear-gradient(145deg,#6c7c79,#3a2f32)}
-.card-two{background-image:url("assets/road.webp"),linear-gradient(145deg,#9c7458,#3a2b2c)}
-.card-three{background-image:url("assets/lake.webp"),linear-gradient(145deg,#547278,#30272f)}
+.card-one{background-image:url("assets/mountain.png"),linear-gradient(145deg,#6c7c79,#3a2f32)}
+.card-two{background-image:url("assets/road.png"),linear-gradient(145deg,#9c7458,#3a2b2c)}
+.card-three{background-image:url("assets/lake.png"),linear-gradient(145deg,#547278,#30272f)}
 
 .events{background:#f8f3eb}
 .events>.content>h2{text-align:left;margin-bottom:54px}
@@ -135,7 +135,7 @@ p{line-height:1.75}
   color:#fff;text-align:center;
   background:
     linear-gradient(rgba(31,21,23,.6),rgba(31,21,23,.72)),
-    url("assets/venue.webp") center/cover no-repeat,
+    url("assets/venue.png") center/cover no-repeat,
     linear-gradient(145deg,#7c655c,#2f2426)
 }
 .venue .eyebrow{color:#dfc598}
@@ -156,7 +156,7 @@ p{line-height:1.75}
   min-height:92svh;color:#fff;text-align:center;
   background:
     linear-gradient(rgba(24,15,17,.35),rgba(24,15,17,.74)),
-    url("assets/finale.webp") center/cover no-repeat,
+    url("assets/finale.png") center/cover no-repeat,
     linear-gradient(145deg,#6f5b55,#241a1d)
 }
 .finale .eyebrow{color:#dfc598}
