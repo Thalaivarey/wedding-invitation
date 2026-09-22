@@ -119,6 +119,45 @@
     }
   });
 
+  // RSVP submission: same-origin POST keeps the Zoho Flow webhook private on the server.
+  const rsvpForm = document.getElementById('rsvpForm');
+  const rsvpStatus = document.getElementById('rsvpStatus');
+  if (rsvpForm && rsvpStatus) {
+    rsvpForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      rsvpStatus.className = 'rsvp-status';
+      rsvpStatus.textContent = '';
+      if (!rsvpForm.reportValidity()) return;
+
+      const submitButton = rsvpForm.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+
+      const data = Object.fromEntries(new FormData(rsvpForm).entries());
+      data.side = document.body.dataset.side || 'bride';
+      data.source_url = window.location.href;
+
+      try {
+        const response = await fetch('/api/rsvp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Unable to submit RSVP.');
+        rsvpStatus.classList.add('success');
+        rsvpStatus.textContent = 'Thank you — your RSVP has been received.';
+        rsvpForm.reset();
+      } catch (error) {
+        rsvpStatus.classList.add('error');
+        rsvpStatus.textContent = error.message || 'Unable to submit RSVP. Please try again.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send RSVP';
+      }
+    });
+  }
+
   // Opening-only canvas: bounded particle count and pixel density; no touch scroll blocking.
   function startSparkles() {
     const canvas = document.getElementById('openingSparkles');
