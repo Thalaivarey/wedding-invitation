@@ -1,103 +1,81 @@
 const gate = document.getElementById('gate');
 const site = document.getElementById('site');
-const openBtn = document.getElementById('openInvitation');
-const music = document.getElementById('bgMusic');
-const musicToggle = document.getElementById('musicToggle');
+const openButton = document.getElementById('openInvitation');
+const chapterNav = document.getElementById('chapterNav');
+const chapters = [...document.querySelectorAll('.chapter')];
+const navLinks = [...chapterNav.querySelectorAll('a')];
 
-document.body.classList.add('locked');
-
-openBtn.addEventListener('click', async () => {
-  gate.classList.add('hide');
+function openInvitation() {
   site.classList.remove('site-hidden');
   site.classList.add('site-visible');
+  chapterNav.classList.remove('hidden');
   document.body.classList.remove('locked');
   document.querySelector('.hero .reveal')?.classList.add('in');
+  gate.classList.add('hide');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  setTimeout(() => gate.remove(), 950);
+}
 
-  try {
-    await music.play();
-    musicToggle.classList.remove('hidden');
-    musicToggle.textContent = '♫';
-  } catch {
-    // The page works without music. Add assets/music.mp3 later to enable it.
-  }
+openButton.addEventListener('click', openInvitation);
 
-  setTimeout(() => gate.remove(), 900);
-});
-
-music.addEventListener('error', () => musicToggle.classList.add('hidden'));
-
-musicToggle.addEventListener('click', async () => {
-  if (music.paused) {
-    try {
-      await music.play();
-      musicToggle.textContent = '♫';
-    } catch {}
-  } else {
-    music.pause();
-    musicToggle.textContent = '♪';
-  }
-});
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('in');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('in');
+    revealObserver.unobserve(entry.target);
   });
-}, { threshold: 0.16 });
+}, { threshold: 0.15, rootMargin: '0px 0px -7% 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal, .reveal-photo').forEach((element) => {
+  revealObserver.observe(element);
+});
 
-const target = new Date('2026-10-30T06:00:00+05:30').getTime();
-function updateCountdown(){
-  const now = Date.now();
-  const distance = Math.max(0, target - now);
-  const days = Math.floor(distance / 86400000);
-  const hours = Math.floor((distance % 86400000) / 3600000);
-  const minutes = Math.floor((distance % 3600000) / 60000);
-  const seconds = Math.floor((distance % 60000) / 1000);
-  document.getElementById('days').textContent = String(days).padStart(2,'0');
-  document.getElementById('hours').textContent = String(hours).padStart(2,'0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+const chapterObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const index = chapters.indexOf(entry.target);
+    navLinks.forEach((link, linkIndex) => link.classList.toggle('active', linkIndex === index));
+    chapterNav.classList.toggle('on-light', entry.target.dataset.tone === 'light');
+  });
+}, { rootMargin: '-43% 0px -43% 0px', threshold: 0 });
+
+chapters.forEach((chapter) => chapterObserver.observe(chapter));
+
+let ticking = false;
+function updateParallax() {
+  document.querySelectorAll('.parallax-media').forEach((media) => {
+    const section = media.parentElement;
+    const rect = section.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+    const y = (progress - 0.5) * 42;
+    media.style.transform = `translate3d(0, ${y}px, 0) scale(1.035)`;
+  });
+  ticking = false;
 }
+
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(updateParallax);
+}, { passive: true });
+
+updateParallax();
+
+const weddingTime = new Date('2026-10-30T06:00:00+05:30').getTime();
+function updateCountdown() {
+  const distance = Math.max(0, weddingTime - Date.now());
+  const units = {
+    days: Math.floor(distance / 86400000),
+    hours: Math.floor((distance % 86400000) / 3600000),
+    minutes: Math.floor((distance % 3600000) / 60000),
+    seconds: Math.floor((distance % 60000) / 1000)
+  };
+
+  Object.entries(units).forEach(([id, value]) => {
+    document.getElementById(id).textContent = String(value).padStart(2, '0');
+  });
+}
+
 updateCountdown();
-setInterval(updateCountdown,1000);
-
-// Scratch-to-reveal card
-const canvas = document.getElementById('scratchCanvas');
-const ctx = canvas.getContext('2d', { willReadFrequently:true });
-let scratching = false;
-
-function paintCover(){
-  const gradient = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-  gradient.addColorStop(0,'#b08f68');
-  gradient.addColorStop(.48,'#d4bd93');
-  gradient.addColorStop(1,'#8f6f55');
-  ctx.globalCompositeOperation='source-over';
-  ctx.fillStyle=gradient;
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle='rgba(45,28,30,.8)';
-  ctx.textAlign='center';
-  ctx.font='600 34px Inter, sans-serif';
-  ctx.fillText('SCRATCH TO REVEAL',canvas.width/2,canvas.height/2+10);
-}
-paintCover();
-
-function scratch(x,y){
-  const rect=canvas.getBoundingClientRect();
-  const sx=(x-rect.left)*(canvas.width/rect.width);
-  const sy=(y-rect.top)*(canvas.height/rect.height);
-  ctx.globalCompositeOperation='destination-out';
-  ctx.beginPath();
-  ctx.arc(sx,sy,52,0,Math.PI*2);
-  ctx.fill();
-}
-function pointFromEvent(e){
-  if(e.touches?.[0]) return {x:e.touches[0].clientX,y:e.touches[0].clientY};
-  return {x:e.clientX,y:e.clientY};
-}
-canvas.addEventListener('pointerdown',e=>{scratching=true;scratch(e.clientX,e.clientY)});
-canvas.addEventListener('pointermove',e=>{if(scratching)scratch(e.clientX,e.clientY)});
-window.addEventListener('pointerup',()=>scratching=false);
-canvas.addEventListener('touchstart',e=>{scratching=true;const p=pointFromEvent(e);scratch(p.x,p.y)},{passive:true});
-canvas.addEventListener('touchmove',e=>{if(scratching){const p=pointFromEvent(e);scratch(p.x,p.y)}},{passive:true});
-window.addEventListener('touchend',()=>scratching=false);
+setInterval(updateCountdown, 1000);
