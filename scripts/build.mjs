@@ -8,7 +8,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://wedding-invitation-snowy-kappa.vercel.app';
 const template = await readFile(resolve(root, 'src/invitation.html'), 'utf8');
 const bride = { name: 'S. Shanmuga Priya', short: 'Shanmuga Priya', initial: 'S', parents: 'K. Selvam & S. Tamil Selvi', label: "Bride’s parents" };
-const groom = { name: 'R. Avinash', short: 'Avinash', initial: 'A', parents: 'C. Ramesh & R. Megala', label: "Groom’s parents" };
+const groom = { name: 'R. Avinash', short: 'R. Avinash', initial: 'A', parents: 'C. Ramesh & R. Megala', label: "Groom’s parents" };
 const versions = [
   { side: 'bride', slug: 'shanmuga-priya', first: bride, second: groom,
     phones: [{ number: '919841772326', label: '98417 72326' }, { number: '916380317543', label: '63803 17543' }] },
