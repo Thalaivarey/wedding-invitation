@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#160f10">
-  <title>Shanmuga Priya &amp; R. Avinash | Wedding Invitation</title>
-  <meta name="description" content="The bride’s family invites you to celebrate S. Shanmuga Priya and R. Avinash · 29–30 October 2026 · Chennai.">
-  <meta property="og:title" content="Shanmuga Priya &amp; R. Avinash | Wedding Invitation">
-  <meta property="og:description" content="The bride’s family invites you to celebrate S. Shanmuga Priya and R. Avinash · 29–30 October 2026 · Chennai.">
+  <title>{{pageTitle}}</title>
+  <meta name="description" content="{{description}}">
+  <meta property="og:title" content="{{pageTitle}}">
+  <meta property="og:description" content="{{description}}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wedding-invitation-snowy-kappa.vercel.app/shanmuga-priya-public/">
+  <meta property="og:url" content="{{canonicalUrl}}">
   <meta property="og:image" content="https://wedding-invitation-snowy-kappa.vercel.app/assets/generated/couple-stage.webp">
   <meta property="og:image:alt" content="Shanmuga Priya and Avinash wedding invitation">
   <meta property="og:image:width" content="1448">
   <meta property="og:image:height" content="1086">
-  <link rel="canonical" href="https://wedding-invitation-snowy-kappa.vercel.app/shanmuga-priya-public/">
+  <link rel="canonical" href="{{canonicalUrl}}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=family-2">
-  <link rel="stylesheet" href="../public.css?v=illustrated-1">
+  <link rel="stylesheet" href="{{assetPrefix}}style.css?v=family-2">
+  <link rel="stylesheet" href="{{assetPrefix}}public.css?v=illustrated-1">
 </head>
-<body class="public-invitation" data-side="bride">
+<body class="public-invitation" data-side="{{side}}">
   <a class="skip-link" href="#celebrate">Skip to wedding details</a>
   <div class="grain" aria-hidden="true"></div>
 
@@ -35,10 +35,10 @@
       <canvas id="openingSparkles"></canvas>
     </div>
     <div class="gate-inner">
-      <div class="monogram" aria-hidden="true"><span>S</span><i>&</i><span>A</span></div>
-      <p class="eyebrow">An invitation from the bride’s family</p>
+      <div class="monogram" aria-hidden="true"><span>{{firstInitial}}</span><i>&</i><span>{{secondInitial}}</span></div>
+      <p class="eyebrow">{{familyInvitation}}</p>
       <h1>Every love story<br><em>has a little magic.</em></h1>
-      <p class="gate-names">Shanmuga Priya &amp; R. Avinash</p>
+      <p class="gate-names">{{shortNames}}</p>
       <p class="gate-date">29 · 30 October 2026</p>
       <button class="primary-btn" id="openInvitation" type="button">Open invitation <span aria-hidden="true">↗</span></button>
       <p class="interaction-hint">Touch a little stardust. Open a new chapter.</p>
@@ -55,20 +55,20 @@
 
   <main id="site">
     <section class="chapter hero" id="welcome" data-tone="dark">
-      <div class="public-hero-art reveal-photo"><img class="hero-photo" src="../assets/generated/couple-backlit.webp" alt="Illustrated portrait of Shanmuga Priya and Avinash in golden backlight" width="1448" height="1086" fetchpriority="high"><span class="portrait-note">A little magic. A lifetime of love.</span></div>
+      <div class="public-hero-art reveal-photo"><img class="hero-photo" src="{{assetPrefix}}assets/generated/couple-backlit.webp" alt="Illustrated portrait of Shanmuga Priya and Avinash in golden backlight" width="1448" height="1086" fetchpriority="high"><span class="portrait-note">A little magic. A lifetime of love.</span></div>
       <div class="hero-sparkles" aria-hidden="true">✦ <span>✧</span> ✦</div>
       <div class="hero-copy reveal">
-        <p class="eyebrow">An invitation from the bride’s family</p>
-        <div class="title-mask"><h1 id="coupleTitle" tabindex="-1">S. Shanmuga Priya</h1></div>
+        <p class="eyebrow">{{familyInvitation}}</p>
+        <div class="title-mask"><h1 id="coupleTitle" tabindex="-1">{{firstName}}</h1></div>
         <div class="hero-ampersand">&</div>
-        <div class="title-mask"><h1>R. Avinash</h1></div>
-        <p class="hero-invite">With joyful hearts, our family invites you to celebrate the wedding of Shanmuga Priya and R. Avinash.</p>
+        <div class="title-mask"><h1>{{secondName}}</h1></div>
+        <p class="hero-invite">{{invitationMessage}}</p>
         <div class="date-line"><span>29—30</span><span>October 2026</span><span>Chennai</span></div>
       </div>
       <a class="scroll-cue" href="#moments"><span></span>Scroll to unfold</a>
     </section>
 
-    <section class="chapter album" id="moments" data-tone="light" data-monogram="S &amp; A">
+    <section class="chapter album" id="moments" data-tone="light" data-monogram="{{monogram}}">
       <div class="album-heading reveal">
         <p class="eyebrow">Chapter one · The celebration</p>
         <h2>Moments before<br><em>the forever.</em></h2>
@@ -77,21 +77,21 @@
 
       <div class="album-stage" aria-label="Illustrated engagement album">
         <figure class="photo photo-a reveal-photo">
-          <img src="../assets/generated/bride-earring.webp" alt="Illustration of Shanmuga Priya adjusting her earring" width="1536" height="1024" loading="lazy">
+          <img src="{{assetPrefix}}assets/generated/bride-earring.webp" alt="Illustration of Shanmuga Priya adjusting her earring" width="1536" height="1024" loading="lazy">
           <figcaption>In the light</figcaption>
         </figure>
         <figure class="photo photo-b reveal-photo">
-          <img src="../assets/generated/bride-golden.webp" alt="Illustration of Shanmuga Priya in golden light" width="1536" height="1024" loading="lazy">
+          <img src="{{assetPrefix}}assets/generated/bride-golden.webp" alt="Illustration of Shanmuga Priya in golden light" width="1536" height="1024" loading="lazy">
         </figure>
         <figure class="photo photo-c reveal-photo">
-          <img src="../assets/generated/couple-rings.webp" alt="Illustration of the couple holding their rings" width="1536" height="1024" loading="lazy">
+          <img src="{{assetPrefix}}assets/generated/couple-rings.webp" alt="Illustration of the couple holding their rings" width="1536" height="1024" loading="lazy">
           <figcaption>A promise, made</figcaption>
         </figure>
         <figure class="photo photo-d reveal-photo">
-          <img src="../assets/generated/bride-mehndi.webp" alt="Illustrated bridal mehndi and bangles" width="1536" height="1024" loading="lazy">
+          <img src="{{assetPrefix}}assets/generated/bride-mehndi.webp" alt="Illustrated bridal mehndi and bangles" width="1536" height="1024" loading="lazy">
         </figure>
         <figure class="photo photo-e reveal-photo">
-          <img src="../assets/generated/couple-stage.webp" alt="Illustrated wedding stage portrait of Shanmuga Priya and Avinash" width="1448" height="1086" loading="lazy">
+          <img src="{{assetPrefix}}assets/generated/couple-stage.webp" alt="Illustrated wedding stage portrait of Shanmuga Priya and Avinash" width="1448" height="1086" loading="lazy">
         </figure>
         <div class="album-stamp reveal" aria-hidden="true"><span>Almost</span><strong>Forever</strong><span>2026</span></div>
       </div>
@@ -139,14 +139,14 @@
 
     <section class="chapter finale" id="join-us" data-tone="dark">
       <figure class="finale-portrait">
-        <img class="finale-photo" src="../assets/generated/couple-stage.webp" alt="Illustrated wedding portrait of Shanmuga Priya and Avinash" width="1448" height="1086" loading="lazy">
-        <figcaption>Shanmuga Priya &amp; R. Avinash · A beautiful beginning</figcaption>
+        <img class="finale-photo" src="{{assetPrefix}}assets/generated/couple-stage.webp" alt="Illustrated wedding portrait of Shanmuga Priya and Avinash" width="1448" height="1086" loading="lazy">
+        <figcaption>{{shortNames}} · A beautiful beginning</figcaption>
       </figure>
       <div class="finale-copy reveal">
         <p class="eyebrow">With the blessings of our parents</p>
         <div class="parents">
-          <p><span>Bride’s parents</span>K. Selvam &amp; S. Tamil Selvi</p>
-          <p><span>Groom’s parents</span>C. Ramesh &amp; R. Megala</p>
+          <p><span>{{firstParentLabel}}</span>{{firstParents}}</p>
+          <p><span>{{secondParentLabel}}</span>{{secondParents}}</p>
         </div>
         <h2>Join us as<br><em>our forever begins.</em></h2>
         <p>Come for the wedding. Stay for the memories.</p>
@@ -155,7 +155,7 @@
           <a class="outline-btn" href="#celebrate">Save the date</a>
         </div>
         <p class="contact-caption">We look forward to celebrating with you</p>
-        <div class="signature">Shanmuga Priya &amp; R. Avinash</div>
+        <div class="signature">{{shortNames}}</div>
       </div>
     </section>
   </main>
@@ -163,7 +163,7 @@
   <div class="celebration-particles" id="celebrationParticles" aria-hidden="true"></div>
   <div class="couple-companion" id="coupleCompanion" hidden>
     <button id="coupleDance" type="button" aria-label="Celebrate with the dancing couple">
-      <img id="coupleGif" src="../assets/generated/dancing-couple.svg" data-animated="../assets/generated/dancing-couple.gif" width="192" height="192" alt="" aria-hidden="true">
+      <img id="coupleGif" src="{{assetPrefix}}assets/generated/dancing-couple.svg" data-animated="{{assetPrefix}}assets/generated/dancing-couple.gif" width="192" height="192" alt="" aria-hidden="true">
       <span class="dance-hint">Tap for a little joy</span>
     </button>
   </div>
@@ -173,7 +173,7 @@
     <img id="fullPhoto" alt="">
     <p id="photoCaption"></p>
   </dialog>
-  <script src="../public.js?v=illustrated-1"></script>
+  <script src="{{assetPrefix}}public.js?v=illustrated-1"></script>
 </body>
 </html>
 
