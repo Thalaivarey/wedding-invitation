@@ -57,6 +57,10 @@
 .couple-companion img{width:112px;height:112px;pointer-events:none;animation:public-sway 5s ease-in-out infinite}
 .dance-hint{display:block;position:absolute;bottom:2px;left:50%;transform:translateX(-50%);white-space:nowrap;font:500 9px/1.4 Manrope,sans-serif;color:#63402e;background:#fff4dc;border-radius:20px;padding:4px 8px;border:1px solid #c8a16677}
 .public-motion{position:fixed;z-index:56;right:max(16px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));min-height:44px;padding:10px 17px;border:1px solid #c5a67788;border-radius:40px;background:#28181dec;color:#f1dfbe;font:500 11px Manrope,sans-serif;backdrop-filter:blur(10px);cursor:pointer}
+.music-note{margin-top:7px;color:#dbc69e;font:400 .6rem/1.5 Manrope,sans-serif;letter-spacing:.04em}
+.music-toggle{position:fixed;z-index:56;right:max(16px,env(safe-area-inset-right));bottom:max(72px,calc(env(safe-area-inset-bottom) + 52px));min-height:44px;max-width:calc(100vw - 124px);padding:10px 17px;border:1px solid #c5a67799;border-radius:40px;background:#f6e6c9f2;color:#442630;font:600 11px/1.4 Manrope,sans-serif;box-shadow:0 4px 20px #160e1620;backdrop-filter:blur(10px);cursor:pointer}
+.music-toggle[aria-pressed="true"]{background:#f6e6c9f2}
+.music-toggle[data-state="off"]{background:#28181dec;color:#f1dfbe}
 .celebration-particles{position:fixed;inset:0;z-index:95;pointer-events:none;overflow:hidden}
 .celebration-particles span{position:absolute;left:var(--x);top:var(--y);color:var(--color,#e6c083);font-size:var(--size,15px);animation:public-burst var(--duration,1.6s) ease-out forwards}
 .photo-viewer{border:1px solid #d3ac7277;border-radius:12px;background:#27181d;padding:45px 15px 18px;width:min(92vw,1040px);max-height:92svh;color:#f5e7d1;overflow:auto;box-shadow:0 30px 100px #0007}
@@ -93,6 +97,7 @@
  .couple-companion img{width:86px;height:86px}
  .dance-hint{font-size:7px;padding:3px 5px}
  .public-motion{font-size:10px;padding:8px 13px}
+ .music-toggle{font-size:10px;padding:8px 13px}
  .public-invitation .finale{padding-bottom:135px}
 }
 @media(max-width:360px){.public-invitation .hero{padding-inline:22px}.public-invitation .hero h1{font-size:2.6rem}.public-invitation .date-line span{font-size:.46rem;padding:10px 9px}.public-invitation .gate h1{font-size:2.6rem}}
