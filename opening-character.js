@@ -10,7 +10,6 @@
     y = clamp(finite(y), -1, 1);
     return {
       x, y,
-      headX: x * 4, headY: y * 2.5, headRotate: x * 4,
       bodyX: x * 1.7, bodyY: y, bodyRotate: x * 1.2
     };
   }
@@ -64,9 +63,6 @@
     }
     function render() {
       const pose = poseFromPosition(x, y);
-      root.style.setProperty('--character-head-x', value(pose.headX, 'px'));
-      root.style.setProperty('--character-head-y', value(pose.headY, 'px'));
-      root.style.setProperty('--character-head-rotate', value(pose.headRotate, 'deg'));
       root.style.setProperty('--character-body-x', value(pose.bodyX, 'px'));
       root.style.setProperty('--character-body-y', value(pose.bodyY, 'px'));
       root.style.setProperty('--character-body-rotate', value(pose.bodyRotate, 'deg'));

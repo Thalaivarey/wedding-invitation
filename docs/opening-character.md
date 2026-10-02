@@ -2,7 +2,7 @@
 
 Both public invitations share the full-body anime host on the opening cover. The original family invitations do not load this feature.
 
-The generated artwork is `assets/generated/opening-anime-bride.webp` (1024 × 1536, alpha transparency). It was created with the built-in image generation tool and encoded as lossless WebP, preserving its pixels and transparency while reducing the source PNG from 1,864,158 bytes to 798,750 bytes. The eye whites in the artwork intentionally have no irises: the inline SVG draws movable irises, pupils and highlights over them. The SVG clips and layers the head and body for subtle cursor tracking.
+The generated artwork is `assets/generated/opening-anime-bride.webp` (1024 × 1536, alpha transparency). It was created with the built-in image generation tool and encoded as lossless WebP, preserving its pixels and transparency while reducing the source PNG from 1,864,158 bytes to 798,750 bytes. The eye whites in the artwork intentionally have no irises: the inline SVG draws movable irises, pupils and highlights over them. The character uses one continuous artwork image and a subtle whole-figure lean, with vertical framing space for motion. Only the eye sockets use clipping; no independently moving head or body slices can tear at the neck.
 
 `opening-character.js` is a classic script loaded before `public.js`. It listens only while the opening gate is present, uses passive pointer handlers for mouse and touch, and schedules animation frames only while moving toward a new pose. Manual animation pause, reduced motion, and tab visibility return the host to a neutral pose; opening the invitation removes its listeners and observer.
 

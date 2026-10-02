@@ -76,8 +76,7 @@ test('Pointer direction uses the face center and every pose stays bounded', () =
   assert.equal(center.x, 0); assert.equal(center.y, 0);
   const far = mapPointerToPose(10000, -10000, face);
   assert.equal(far.x, 1); assert.equal(far.y, -1);
-  assert.equal(far.headX, 4); assert.equal(far.headY, -2.5);
-  assert.equal(far.headRotate, 4); assert.equal(far.bodyX, 1.7); assert.equal(far.bodyRotate, 1.2);
+  assert.equal(far.bodyX, 1.7); assert.equal(far.bodyY, -1); assert.equal(far.bodyRotate, 1.2);
   assert.equal(mapPointerToPose(NaN, undefined, face).x, 0);
   assert.equal(poseFromPosition(Infinity, -Infinity).x, 0);
 });
@@ -97,7 +96,7 @@ test('Tracking smooths toward the pointer, stops scheduling when settled, and re
   assert.equal(a.eye.properties['--pupil-y'], '-3px');
   a.gate.emit('pointerleave'); a.settle();
   assert.equal(a.eye.properties['--pupil-x'], '0px');
-  assert.equal(a.root.properties['--character-head-rotate'], '0deg');
+  assert.equal(a.root.properties['--character-body-rotate'], '0deg');
   a.window.emit('resize'); a.point(); assert.equal(a.measurements(), 2);
 });
 
