@@ -21,6 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=family-2">
   <link rel="stylesheet" href="../public.css?v=music-1">
+  <link rel="stylesheet" href="../opening-character.css?v=character-2">
+  <link rel="preload" as="image" type="image/webp" href="../assets/generated/opening-anime-bride.webp">
 </head>
 <body class="public-invitation" data-side="bride">
   <a class="skip-link" href="#celebrate">Skip to wedding details</a>
@@ -34,6 +36,40 @@
       <div class="gate-orbit"></div>
       <canvas id="openingSparkles"></canvas>
     </div>
+    <div class="gate-layout">
+      <div class="opening-character" id="openingCharacter" aria-hidden="true">
+        <svg viewBox="210 -80 660 1696" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <defs>
+            <clipPath id="characterEyeLeft"><path d="M443 155 Q459 139 481 157 Q463 168 443 155Z"/></clipPath>
+            <clipPath id="characterEyeRight"><path d="M514 154 Q533 135 553 150 Q535 164 514 154Z"/></clipPath>
+            <radialGradient id="characterIris"><stop stop-color="#a96936"/><stop offset=".55" stop-color="#79421f"/><stop offset="1" stop-color="#321b16"/></radialGradient>
+          </defs>
+          <g class="character-body">
+            <image href="../assets/generated/opening-anime-bride.webp" width="1024" height="1536"/>
+            <g class="character-face">
+              <rect data-character-face x="430" y="110" width="135" height="105" fill="transparent"/>
+              <g clip-path="url(#characterEyeLeft)">
+                <g class="character-eye" data-range-x="6" data-range-y="3">
+                  <ellipse cx="462" cy="155" rx="10" ry="12" fill="url(#characterIris)"/>
+                  <ellipse cx="462" cy="155" rx="4" ry="8" fill="#201315"/>
+                  <ellipse cx="459" cy="150" rx="2.4" ry="3" fill="#fff9ef"/>
+                  <circle cx="466" cy="159" r="1.1" fill="#f8deb4"/>
+                </g>
+                <path class="character-eyelid" d="M443 155 Q459 139 481 157 Q463 168 443 155Z"/>
+              </g>
+              <g clip-path="url(#characterEyeRight)">
+                <g class="character-eye" data-range-x="6" data-range-y="3">
+                  <ellipse cx="534" cy="151" rx="10" ry="12" fill="url(#characterIris)"/>
+                  <ellipse cx="534" cy="151" rx="4" ry="8" fill="#201315"/>
+                  <ellipse cx="531" cy="146" rx="2.4" ry="3" fill="#fff9ef"/>
+                  <circle cx="538" cy="155" r="1.1" fill="#f8deb4"/>
+                </g>
+                <path class="character-eyelid" d="M514 154 Q533 135 553 150 Q535 164 514 154Z"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
     <div class="gate-inner">
       <div class="monogram" aria-hidden="true"><span>S</span><i>&</i><span>A</span></div>
       <p class="eyebrow">An invitation from the bride’s family</p>
@@ -41,9 +77,10 @@
       <p class="gate-names">Shanmuga Priya &amp; R. Avinash</p>
       <p class="gate-date">29 · 30 October 2026</p>
       <button class="primary-btn" id="openInvitation" type="button">Open invitation <span aria-hidden="true">↗</span></button>
-      <p class="interaction-hint">Touch a little stardust. Open a new chapter.</p>
+      <p class="interaction-hint">Move your cursor or touch the screen.<br>A little magic is looking back.</p>
       <p class="music-note">Opens with gentle music · mute anytime</p>
       <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false">Pause animation</button>
+    </div>
     </div>
   </section>
 
@@ -175,6 +212,7 @@
     <img id="fullPhoto" alt="">
     <p id="photoCaption"></p>
   </dialog>
+  <script src="../opening-character.js?v=character-2"></script>
   <script src="../public.js?v=illustrated-1"></script>
   <script src="../music.js?v=music-1"></script>
 </body>
